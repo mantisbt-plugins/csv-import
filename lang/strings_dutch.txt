@@ -1,0 +1,44 @@
+<?php
+
+# Custom strings for english language
+$s_plugin_Csv_import_title = 'Mantis CSV Importeerder';
+$s_plugin_Csv_import_description = 'Importeer CSV bestanden als Mantis meldingen';
+$s_plugin_Csv_import_config = 'Configuratie';
+$s_plugin_Csv_import_update_config = 'Wijzig configuratie';
+$s_plugin_Csv_import_file_format_col_spacer = 'CSV kolom scheidingsteken';
+$s_plugin_Csv_import_skip_blank_lines = 'Sla lege regels over';
+$s_plugin_Csv_import_skip_blank_columns = 'Sla alle kolommen na een lege kolomtitel over.';
+$s_plugin_Csv_import_create_unknown_cats = 'Creëer onbekende categorieën';
+$s_plugin_Csv_import_tab_csv_separator = 'Gebruik tab';
+$s_plugin_Csv_import_error_keys = 'De sleutel "%s" bestaat bij vele meldingen : %s';
+
+# Import issues
+$s_plugin_Csv_import_manage_issues_link = 'Importeer CSV file';
+$s_plugin_Csv_import_manage_issues = 'CSV importeren';
+$s_plugin_Csv_import_issues_file = 'Importeer meldingen van CSV file';
+$s_plugin_Csv_import_issues_columns = 'Bestands kolommen';
+$s_plugin_Csv_import_skip_first_line = 'Sla eerste bestandsregel over';
+$s_plugin_Csv_import_file_button = 'Importeer bestand';
+$s_plugin_Csv_import_column_number = 'Kolom #%d';
+$s_plugin_Csv_import_result_failure_ct = 'Tegengekomen fouten voor %d meldingen';
+$s_plugin_Csv_import_result_import_success_ct = '%d meldingen succesvol geïmporteerd';
+$s_plugin_Csv_import_result_update_success_ct = '%d meldingen succesvol gewijzigd';
+$s_plugin_Csv_import_error_nolines = 'er moet minimaal één regel met gegevens zijn om te importeren';
+$s_plugin_Csv_import_error_empty_header = 'er mag geen lege titelregel zijn wanneer de eerste rgel overgeslagen wordt';
+$s_plugin_Csv_import_error_noseparator = 'elke regel moet het scheidingsteken "%s" hebben';
+$s_plugin_Csv_import_error_manycols = 'te veel kolommen in het bestand';
+$s_plugin_Csv_import_error_col_count = 'elke regel moet hetzelfde aantal "%s" scheidingstekens hebben';
+$s_plugin_Csv_import_error_file_not_found = 'bestand niet gevonden';
+$s_plugin_Csv_import_error_file_not_writable = 'kan bestand niet wegschrijven';
+$s_plugin_Csv_import_error_file_not_opened = 'kan bestand niet openen';
+$s_plugin_Csv_import_error_col_multiple = 'zelfde kolom meer dan één keer gedefinieerd';
+$s_plugin_Csv_import_error_bug_not_exist = 'Melding %d bestaat niet';
+$s_plugin_Csv_import_error_bug_bad_project = 'Melding %d bestaat niet in het huidige project';
+$s_plugin_Csv_import_error_any = 'Fout tijdens melding "%s"';
+$s_plugin_Csv_import_error_custom_field = 'Fout tijdens importeren gebruikersveld "%s" voor melding "%s"';
+$s_plugin_Csv_import_error_col_select_multiple = 'De volgende velden zijn geselecteerdvoor meer dan n kolom:';
+
+# Errors
+$MANTIS_ERROR['plugin_Csv_import_ERROR_ALL_PROJECT'] = 'Selecteer een project om te importeren';
+$MANTIS_ERROR['plugin_Csv_import_ERROR_FILE_FORMAT'] = 'Incorrect import bestandsformaat: %s';
+$MANTIS_ERROR['plugin_Csv_import_ERROR_FILE'] = 'Er is een probleem met het bestand zelf';
