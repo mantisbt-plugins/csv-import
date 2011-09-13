@@ -213,7 +213,7 @@
 				</select>
 			</td>
 			 <td>
-				<input type="checkbox" name="cb_keys[<?php echo $t_column_title[$i]?>]" value="ok"/>
+				<input type="checkbox" name="cb_keys[]" value="<?php echo $i?>"/>
 			 </td>
 		</tr><?php
 	}

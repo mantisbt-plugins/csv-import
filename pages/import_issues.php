@@ -27,6 +27,14 @@ $f_keys = gpc_get_string_array( 'cb_keys', array() );
 # Load custom field ids
 $t_linked_ids = custom_field_get_linked_ids( $g_project_id );
 
+# Convert the order-based key array to column-based key array
+$t = array();
+foreach($f_keys as $aKey) {
+   $t[$f_columns[$aKey]] = 'standard';
+}
+$f_keys = $t;
+unset($t);
+
 # Get custom field id of primary keys
 foreach($t_linked_ids as $cf_id) {
 	$t_def = custom_field_get_definition($cf_id);
@@ -123,16 +131,16 @@ foreach( $t_file_content as $t_file_row ) {
 			$t_values_for_error = array();
 			foreach($f_keys as $aKey => $v)
 			{
-				if(substr($aKey, 0, strlen($g_custom_field_identifier)) != $g_custom_field_identifier)
+			   $filterValue = array(get_column_value( $aKey, $t_file_row, '' ));
+				if($v == 'standard')
 				{
-					$t_filter[$aKey] = array(get_column_value( $aKey, $t_file_row, '' ));
-					$t_values_for_error[] = $t_filter[$aKey][0];
+					$t_filter[$aKey] = $filterValue;
 				}
 				else
 				{
-					$t_filter['custom_fields'][$v] = array(get_column_value( $aKey, $t_file_row, '' ));
-					$t_values_for_error[] = $t_filter['custom_fields'][$v][0];
+					$t_filter['custom_fields'][$v] = $filterValue;
 				}
+				$t_values_for_error[] = $filterValue[0];
 			}
 
 			$t_issues = filter_get_bug_rows( $t_page_number, $t_issues_per_page, $t_page_count, $t_issues_count, $t_filter );
