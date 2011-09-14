@@ -2,7 +2,7 @@ Mantis Issue Importer
 =====================
 
 History:
-_________
+________
 
 Version | Author                 | Action
 --------------------------------------------------------------------------------------
@@ -30,14 +30,14 @@ Version | Author                 | Action
 (old)   | ave                    | Importer creation
 
 
-Know Issues:
-____________
+Known Issues:
+_____________
 
 * Please, see https://github.com/lionheart33806/Csv-import-4-MantisBT/issues
 
 
 Licence:
-_________
+________
 
 The licence of CSV Import remains untouched, means GPL,
 as stated in THE GPL.
@@ -46,7 +46,12 @@ as stated in THE GPL.
 Installation:
 _____________
 
-Installation instructions are the same as installing a plugin.
+Create a "Csv_import" directory in "plugins" directory of mantis.
+Extract all the files in "Csv_import".
+
+In "Manage" module, you should find "Import CSV file".
+
+NB : "Csv_import" is case sensitive.
 
 
 Function:
@@ -87,8 +92,8 @@ a backup of your database before importing.
 6. Review the results to ensure they are as expected.
 
 
-About CSV format :
-__________________
+About CSV format:
+_________________
 
 Be sure your file is RFC compliant
 Look at :
