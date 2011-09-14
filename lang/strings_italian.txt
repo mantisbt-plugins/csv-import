@@ -1,0 +1,44 @@
+<?php
+
+# Custom strings for italian language
+$s_plugin_Csv_import_title = 'Importatore CSV in Mantis';
+$s_plugin_Csv_import_description = 'Importa file CSV come issues in Mantis';
+$s_plugin_Csv_import_config = 'Configurazione';
+$s_plugin_Csv_import_update_config = 'Aggiorna configurazione';
+$s_plugin_Csv_import_file_format_col_spacer = 'Separatore CSV di colonna';
+$s_plugin_Csv_import_skip_blank_lines = 'Salta le righe vuote';
+$s_plugin_Csv_import_skip_blank_columns = 'Salta tutte le colonne che seguono un\'intestazione vuota.';
+$s_plugin_Csv_import_create_unknown_cats = 'Crea categorie sconosciute';
+$s_plugin_Csv_import_tab_csv_separator = 'Usa tab';
+$s_plugin_Csv_import_error_keys = 'La chiave "%s" esiste su molteplici bugs : %s';
+
+# Import issues
+$s_plugin_Csv_import_manage_issues_link = 'Importa file CSV';
+$s_plugin_Csv_import_manage_issues = 'Importazione di CSV';
+$s_plugin_Csv_import_issues_file = 'Importa issue da file CSV';
+$s_plugin_Csv_import_issues_columns = 'Colonne del file';
+$s_plugin_Csv_import_skip_first_line = 'Salta la prima riga del file';
+$s_plugin_Csv_import_file_button = 'Importa file';
+$s_plugin_Csv_import_column_number = 'Colonna #%d';
+$s_plugin_Csv_import_result_failure_ct = 'Errori riscontrati per %d issues';
+$s_plugin_Csv_import_result_import_success_ct = '%d issue importati correttamente';
+$s_plugin_Csv_import_result_update_success_ct = '%d issue aggiornati correttamente';
+$s_plugin_Csv_import_error_nolines = 'deve esistere almeno una riga di dati da importare';
+$s_plugin_Csv_import_error_empty_header = 'intestazione vuota non ammessa se la prima riga deve essere ignorata';
+$s_plugin_Csv_import_error_noseparator = 'ogni riga deve usare il separatore "%s"';
+$s_plugin_Csv_import_error_manycols = 'troppe colonne nel file';
+$s_plugin_Csv_import_error_col_count = 'ogni riga deve avere lo stesso numero di separatori "%s"';
+$s_plugin_Csv_import_error_file_not_found = 'file non trovato';
+$s_plugin_Csv_import_error_file_not_writable = 'impossibile scrivere il file';
+$s_plugin_Csv_import_error_file_not_opened = 'impossibile aprire il file';
+$s_plugin_Csv_import_error_col_multiple = 'stessa colonna presente piu\' volte';
+$s_plugin_Csv_import_error_bug_not_exist = 'Il bug %d non esiste';
+$s_plugin_Csv_import_error_bug_bad_project = 'Il bug %d non fa parte del progetto corrente';
+$s_plugin_Csv_import_error_any = 'Errore nel trattamento del bug "%s"';
+$s_plugin_Csv_import_error_custom_field = 'Errore d\'importazione del campo personalizzato "%s" per il bug "%s"';
+$s_plugin_Csv_import_error_col_select_multiple = 'I campi seguenti sono stati selezionati per piu\' di una colonna:';
+
+# Errors
+$MANTIS_ERROR['plugin_Csv_import_ERROR_ALL_PROJECT'] = 'Selezionare un progetto per importare gli issue';
+$MANTIS_ERROR['plugin_Csv_import_ERROR_FILE_FORMAT'] = 'Formato non corretto per il file da importare: %s';
+$MANTIS_ERROR['plugin_Csv_import_ERROR_FILE'] = 'Errore riscontrato sul file medesimo';
