@@ -52,7 +52,7 @@ Installation instructions are the same as installing a plugin.
 Function:
 _________
 
-Imports/update one or more issues from a CSV text file into Mantis.
+Imports/update one or more issues from a CSV text file into the current project of Mantis.
 
 
 Requirements:
