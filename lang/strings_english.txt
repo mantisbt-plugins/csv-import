@@ -42,3 +42,4 @@ $s_plugin_Csv_import_error_col_select_multiple = 'The following fields have been
 $MANTIS_ERROR['plugin_Csv_import_ERROR_ALL_PROJECT'] = 'A project must be selected to import issues';
 $MANTIS_ERROR['plugin_Csv_import_ERROR_FILE_FORMAT'] = 'Incorrect imported file format: %s';
 $MANTIS_ERROR['plugin_Csv_import_ERROR_FILE'] = 'There was an error with the file itself';
+$MANTIS_ERROR['plugin_Csv_import_ERROR_FILE_UPLOAD'] = 'Server can\'t store the uploaded file.';

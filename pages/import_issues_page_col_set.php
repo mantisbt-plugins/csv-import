@@ -14,7 +14,7 @@
 
 	# Check fields are set
 	if ( is_blank( $f_import_file['tmp_name'] ) || ( $f_import_file['size'] == 0 ) ) {
-		trigger_error( ERROR_EMPTY_FIELD, ERROR );
+		plugin_error( 'ERROR_FILE_UPLOAD', ERROR );
 	}
 
 	# File analysis
