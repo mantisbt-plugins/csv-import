@@ -72,6 +72,7 @@ ______
 Take care that this importing functionality can make a mess in your database. It is recommanded that you make
 a backup of your database before importing.
 
+Dates can be given with timestamp, "European" (d-m-y) or American (m/d/y) format.
 
 1. In the "Manage" menu, select "Import CSV file".
 
