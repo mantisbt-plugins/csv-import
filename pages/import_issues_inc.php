@@ -26,7 +26,7 @@ if( count( $g_all_fields ) == 0 ) {
 		'fixed_in_version',
 		'handler_id',
 		'id',
-		'last_updated',
+//		'last_updated', // Can't be used with mantis api : if changed, it's updated with current timestamp :-/
 		'os',
 		'os_build',
 		'platform',
@@ -213,7 +213,13 @@ function get_enum_column_value( $p_name, $p_row, $p_default ) {
 #-----------------------
 function get_date_column_value( $p_name, $p_row, $p_default ) {
 	$t_date = get_column_value( $p_name, $p_row );
-	return is_blank( $t_date ) ? $p_default : strtotime( $t_date );
+
+	if(!is_blank($t_date))
+	{
+	   return is_numeric($t_date) ? $t_date : strtotime( $t_date );
+	}
+
+	return $p_default;
 }
 
 
