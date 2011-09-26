@@ -75,17 +75,19 @@ a backup of your database before importing.
 
 1. In the "Manage" menu, select "Import CSV file".
 
-2. Select the file to import. Your file must be in a correct CSV format (see above), and must only contain importable
-   columns. The first line of the file can be a title line. In that case do
-   not forget to select "Skip first line". If you are using standard column names, or the
-	 name of the columns as given in your current language, it will be reconized by the importer.
+2. Select the file to import. Your file must be in a correct CSV format (see above), and must only contain
+   importable columns. The first line of the file can be a title line. In that case do not forget to
+   select "Skip first line".
 
 3. Select the "Import file" button.
 
-4. If the importer did not detect your columns automatically, select them. Please, always verify the columns.
-	If you import many times from an another bug tracker, you should previously create a custom field which will
-	contain the other bug tracker bug id. Then, check in "Primay key" column the line corresponding  to
-	the custom field.
+4. The importer will try to recognize if the file use standard column names, or the name as given in
+	your current language.
+	If the importer did not detect your columns automatically, select them. Please, always verify the columns.
+	If you import many times from an another bug tracker, you should previously create a custom field which will contain
+	the other bug tracker bug id. Then, check in "Primay key" column the line corresponding  to the custom field.
+
+	If you define a column as a mantis ID, "primary key" checkboxes will be ignored.
 
 5. Select the "Import" button.
 
