@@ -21,6 +21,7 @@ $s_plugin_Csv_import_skip_first_line = 'Skip first file line';
 $s_plugin_Csv_import_file_button = 'Import file';
 $s_plugin_Csv_import_column_number = 'Column #%d';
 $s_plugin_Csv_import_result_failure_ct = 'Encountered errors for %d issues';
+$s_plugin_Csv_import_result_nothing_success_ct = '%d unchanged issues';
 $s_plugin_Csv_import_result_import_success_ct = '%d issues successfully imported';
 $s_plugin_Csv_import_result_update_success_ct = '%d issues successfully updated';
 $s_plugin_Csv_import_error_nolines = 'There must be at least one line of data to import';
