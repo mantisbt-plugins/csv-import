@@ -209,7 +209,7 @@
 			</td>
 			<td>
 				<select name="columns[]">
-					<?php print_all_fields_option_list( $t_found_field !== false ? $t_found_field : key( $t_fields ) ) ?>
+					<?php print_all_fields_option_list( $t_found_field !== false ? $t_found_field : 'ignore_column' ) ?>
 				</select>
 			</td>
 			 <td>
