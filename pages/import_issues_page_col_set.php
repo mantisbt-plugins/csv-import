@@ -184,8 +184,12 @@
 	$t_column_title = array_map( 'trim', $t_column_title );
 
 	for( $t_fields = $g_all_fields, $i = 0; $i < $t_column_count; next( $t_fields ), $i++ ) {
-		# Find existing field
-		if( isset( $g_all_fields[$t_column_title[$i]] ))
+		# Map imported columns to fields.
+		if ( strtolower( $t_column_title[$i] ) == 'id' ) {
+			# By default use import as new issues mode rather than update issues with matching ids.
+			$t_found_field = false;
+		}
+		else if( isset( $g_all_fields[$t_column_title[$i]] ))
 		{
 			$t_found_field = $t_column_title[$i];
 		}
