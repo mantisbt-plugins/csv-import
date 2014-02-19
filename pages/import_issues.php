@@ -211,6 +211,7 @@ foreach( $t_file_content as $t_file_row ) {
 	$callUpdate = false;
 	$t_custom_fields_to_set = array();
 	$t_date_submitted = null;
+	$t_description_set = false;
 
 	foreach($f_columns as $i => $aColumn) {
 	   $v = null;
@@ -254,6 +255,10 @@ foreach( $t_file_content as $t_file_row ) {
 	      case 'steps_to_reproduce' :
 	      case 'additional_information' :
 	      case 'fixed_in_version' :
+	         $v = get_column_value( $aColumn, $t_file_row, '');
+	         break;
+	      case 'description' :
+             $t_description_set = true;
 	         $v = get_column_value( $aColumn, $t_file_row, '');
 	         break;
 	      case 'category' :
@@ -310,6 +315,9 @@ foreach( $t_file_content as $t_file_row ) {
 
 	# Set values
 	if(!$t_dry_mode && $t_operation_type != 'nothing') {
+		if ( !$t_description_set ) {
+			$t_bug_data->description = $t_bug_data->summary;
+		}
 	   # Set non-custom fields
    	if( $t_bug_id === null) {
    		$t_bug_id = $t_bug_data->create();
