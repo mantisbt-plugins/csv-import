@@ -250,9 +250,24 @@ function get_user_column_value( $p_name, $p_row, $p_default ) {
 		return $t_user_id;
 	}
 
-	if( user_create( $t_username , $t_username ) ) {
+	if ( strstr( $t_username, '@' ) === false ) {
+		$t_email = $t_username . '@localhost';
+	} else {
+		$t_email = $t_username;
+	}
+
+	$t_password = time() . rand( 1, 10000 );
+
+	if( user_create(
+			$t_username,
+			$t_password,    # password
+			$t_email,       # email address
+			null,           # access_level
+			false,          # protected
+			false) ) {      # enabled - disable user - admin can reset password and enable.
 		return user_get_id_by_name($t_username);
 	}
+
 	return $p_default;
 }
 
