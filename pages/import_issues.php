@@ -41,8 +41,8 @@ foreach($t_linked_ids as $cf_id) {
 	$t_def = custom_field_get_definition($cf_id);
 	$t_custom_col_name = $g_custom_field_identifier . $t_def['name'];
 
-	if(isset($f_columns[$t_custom_col_name])) {
-	   $t_custom_fields[$t_custom_fields] = $cf_id;
+	if ( in_array( $t_custom_col_name, $f_columns ) ) {
+		$t_custom_fields[$t_custom_col_name] = $cf_id;
 	}
 
 	if(isset($f_keys[$t_custom_col_name])) {
@@ -278,7 +278,9 @@ foreach( $t_file_content as $t_file_row ) {
 	      default :
 	         $valueSet = false;
 	         if(isset($t_custom_fields[$aColumn])) {
-   	         # Prepare value
+				$t_id = $t_custom_fields[$aColumn];
+
+				# Prepare value
       			$t_value = get_column_value( $aColumn , $t_file_row );
       			if( ($t_value != '') && ($t_def['type'] == CUSTOM_FIELD_TYPE_DATE) ) {
       				$t_value = is_numeric($t_value) ? $t_value : strtotime($t_value);
