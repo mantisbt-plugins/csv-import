@@ -1,8 +1,10 @@
-csv-import
+Csv_import
 ==========
 
 A csv importer plugin for MantisBT v1.2.
 
+Install
+-------
 - Download or clone the repository and place it under the MantisBT plugins folder.
 - Rename the folder to Csv_import
 - Go to Manage - Manage Plugins and install the plugin.
@@ -17,8 +19,8 @@ Features
 - Supports updating issues after matching by ids.
 - Supports updating issues after matching by selectd fields assuming a single match.
 
-Few hints about usability:
---------------------------
+Few hints about usability
+-------------------------
 - Have a separate csv file per project.
 - Switch to the project before importing.
 - If the goal to add the rows from csv, then make sure to map Id fields (if in CSV) to be ignored.
