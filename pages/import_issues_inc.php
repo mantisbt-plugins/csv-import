@@ -26,7 +26,7 @@ if( count( $g_all_fields ) == 0 ) {
 		'fixed_in_version',
 		'handler_id',
 		'id',
-//		'last_updated', // Can't be used with mantis api : if changed, it's updated with current timestamp :-/
+		'last_updated',
 		'os',
 		'os_build',
 		'platform',

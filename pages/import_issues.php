@@ -211,6 +211,7 @@ foreach( $t_file_content as $t_file_row ) {
 	$callUpdate = false;
 	$t_custom_fields_to_set = array();
 	$t_date_submitted = null;
+	$t_last_updated = null;
 	$t_description_set = false;
 
 	foreach($f_columns as $i => $aColumn) {
@@ -302,8 +303,9 @@ foreach( $t_file_content as $t_file_row ) {
 
 	      if($aColumn == 'date_submitted') {
             $t_date_submitted = $v ;
-	      }
-	      else {
+	      } else if ( $aColumn == 'last_updated' ) {
+	        $t_last_updated = $v;
+	      } else {
    			$t_bug_data->$aColumn = $v;
 		      $callUpdate = true;
 	      }
@@ -346,6 +348,11 @@ foreach( $t_file_content as $t_file_row ) {
    	# Set date_submitted (can be set only after bug creation)
    	if($t_date_submitted) {
    	   bug_set_field( $t_bug_id, 'date_submitted', $t_date_submitted );
+   	}
+
+   	# Set last_updated (can be set only after bug creation / updated)
+   	if ( $t_last_updated ) {
+   	   bug_set_field( $t_bug_id, 'last_updated', $t_last_updated );
    	}
 	}
 }
