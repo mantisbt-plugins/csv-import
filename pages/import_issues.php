@@ -280,12 +280,14 @@ foreach( $t_file_content as $t_file_row ) {
 	         $valueSet = false;
 	         if(isset($t_custom_fields[$aColumn])) {
 				$t_id = $t_custom_fields[$aColumn];
+				$t_def = custom_field_get_definition( $t_id );
 
 				# Prepare value
-      			$t_value = get_column_value( $aColumn , $t_file_row );
-      			if( ($t_value != '') && ($t_def['type'] == CUSTOM_FIELD_TYPE_DATE) ) {
-      				$t_value = is_numeric($t_value) ? $t_value : strtotime($t_value);
-      			}
+				if ( $t_def['type'] == CUSTOM_FIELD_TYPE_DATE ) {
+					$t_value = get_date_column_value( $aColumn, $t_file_row, '' );
+				} else {
+					$t_value = get_column_value( $aColumn, $t_file_row );
+				}
 
       			# Have to be different
       			if( $t_bug_id && $t_value == custom_field_get_value( $t_id, $t_bug_id) ) {
