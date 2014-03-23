@@ -245,7 +245,7 @@ function get_user_column_value( $p_name, $p_row, $p_default ) {
 
 	$t_username_pretty = string_MkPretty( $t_username );
 	if ( $t_username_pretty !== $t_username ) {
-		if ( ( $t_user_id = user_get_id_by_name( $t_username_pretty ) )
+		if ( $t_user_id = user_get_id_by_name( $t_username_pretty ) ) {
 			return $t_user_id;
 		}
 	}
