@@ -243,10 +243,11 @@ function get_user_column_value( $p_name, $p_row, $p_default ) {
 		return $t_user_id;
 	}
 
-	$t_username = string_MkPretty($t_username);
-
-	if( ($t_user_id = user_get_id_by_name($t_username)) !== false ) {
-		return $t_user_id;
+	$t_username_pretty = string_MkPretty( $t_username );
+	if ( $t_username_pretty !== $t_username ) {
+		if ( ( $t_user_id = user_get_id_by_name( $t_username_pretty ) )
+			return $t_user_id;
+		}
 	}
 
 	if ( strstr( $t_username, '@' ) === false ) {
