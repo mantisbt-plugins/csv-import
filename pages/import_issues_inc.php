@@ -229,8 +229,7 @@ function string_MkPretty( $t_str ) {
 	$t_str = preg_replace('/\xf6/ui', 'oe', $t_str);
 	$t_str = preg_replace('/\xe4/ui', 'ae', $t_str);
 	$t_str = preg_replace('/\xdf/ui', 'ss', $t_str);
-	$t_str = preg_split('/[^(\w\-)]+/', $t_str);
-	return $t_str[0];
+	return $t_str;
 }
 
 
