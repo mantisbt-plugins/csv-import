@@ -26,7 +26,6 @@ $s_plugin_Csv_import_result_update_success_ct = '%d meldingen succesvol gewijzig
 $s_plugin_Csv_import_error_nolines = 'Er moet minimaal één regel met gegevens zijn om te importeren';
 $s_plugin_Csv_import_error_empty_header = 'Er mag geen lege titelregel zijn wanneer de eerste rgel overgeslagen wordt';
 $s_plugin_Csv_import_error_noseparator = 'Elke regel moet het scheidingsteken "%s" hebben';
-$s_plugin_Csv_import_error_manycols = 'Te veel kolommen in het bestand';
 $s_plugin_Csv_import_error_col_count = 'Elke regel moet hetzelfde aantal "%s" scheidingstekens hebben';
 $s_plugin_Csv_import_error_file_not_found = 'Bestand niet gevonden';
 $s_plugin_Csv_import_error_file_not_writable = 'Kan bestand niet wegschrijven';

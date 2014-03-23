@@ -27,7 +27,6 @@ $s_plugin_Csv_import_result_update_success_ct = '%d issues successfully updated'
 $s_plugin_Csv_import_error_nolines = 'There must be at least one line of data to import';
 $s_plugin_Csv_import_error_empty_header = 'There must not be empty header if skipping first line';
 $s_plugin_Csv_import_error_noseparator = 'Each line must have the separator "%s"';
-$s_plugin_Csv_import_error_manycols = 'Too many columns in the file';
 $s_plugin_Csv_import_error_col_count = 'Each line must have the same "%s" separator count';
 $s_plugin_Csv_import_error_file_not_found = 'File not found';
 $s_plugin_Csv_import_error_file_not_writable = 'Cannot write file';

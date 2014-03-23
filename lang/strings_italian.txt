@@ -26,7 +26,6 @@ $s_plugin_Csv_import_result_update_success_ct = '%d issue aggiornati correttamen
 $s_plugin_Csv_import_error_nolines = 'Deve esistere almeno una riga di dati da importare';
 $s_plugin_Csv_import_error_empty_header = 'Intestazione vuota non ammessa se la prima riga deve essere ignorata';
 $s_plugin_Csv_import_error_noseparator = 'Ogni riga deve usare il separatore "%s"';
-$s_plugin_Csv_import_error_manycols = 'Troppe colonne nel file';
 $s_plugin_Csv_import_error_col_count = 'Ogni riga deve avere lo stesso numero di separatori "%s"';
 $s_plugin_Csv_import_error_file_not_found = 'File non trovato';
 $s_plugin_Csv_import_error_file_not_writable = 'Impossibile scrivere il file';

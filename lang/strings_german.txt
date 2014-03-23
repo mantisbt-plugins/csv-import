@@ -26,7 +26,6 @@ $s_plugin_Csv_import_result_update_success_ct = '%d Probleme erfolgreich aktuali
 $s_plugin_Csv_import_error_nolines = 'Es muss mindestens eine Zeile zu importieren sein';
 $s_plugin_Csv_import_error_empty_header = 'There must not be empty header if skipping first line';
 $s_plugin_Csv_import_error_noseparator = 'Jede Zeile muss das Trennzeichen "%s" enthalten';
-$s_plugin_Csv_import_error_manycols = 'Die Datei hat zu viele Spalten';
 $s_plugin_Csv_import_error_col_count = 'Jede Zeile muss die Gleiche Anzahl des Trennzeichens "%s" enthalten';
 $s_plugin_Csv_import_error_file_not_found = 'Datei konnte nicht gefunden werden';
 $s_plugin_Csv_import_error_file_not_writable = 'Cannot write file';

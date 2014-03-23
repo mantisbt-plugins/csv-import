@@ -42,11 +42,6 @@
 				error_parameters( sprintf( plugin_lang_get( 'error_noseparator' ), $t_separator) );
 				plugin_error( 'ERROR_FILE_FORMAT', ERROR );
 			}
-			# If more columns than possible for Mantis
-			elseif( count( $t_elements ) > count( $g_all_fields ) ) {
-				error_parameters( plugin_lang_get( 'error_manycols' ) );
-				plugin_error( 'ERROR_FILE_FORMAT', ERROR );
-			}
 			elseif (
 				$t_trim_rows && (trim(implode(' ' , $t_elements)) == '')
 			) {
@@ -184,6 +179,10 @@
 	$t_column_title = array_map( 'trim', $t_column_title );
 
 	for( $t_fields = $g_all_fields, $i = 0; $i < $t_column_count; next( $t_fields ), $i++ ) {
+		if ( is_blank( $t_column_title[$i] ) ) {
+			continue;
+		}
+
 		# Map imported columns to fields.
 		if ( strtolower( $t_column_title[$i] ) == 'id' ) {
 			# By default use import as new issues mode rather than update issues with matching ids.

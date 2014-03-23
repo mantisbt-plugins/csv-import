@@ -27,7 +27,6 @@ $s_plugin_Csv_import_result_update_success_ct = '%d bogues mis à jour avec succ
 $s_plugin_Csv_import_error_nolines = 'Il doit y avoir au moins une ligne à importer';
 $s_plugin_Csv_import_error_empty_header = 'Il ne doit pas y avoir d\'en-tête vide lorsque la première ligne est ignorée';
 $s_plugin_Csv_import_error_noseparator = 'Chaque ligne doit contenir le séparateur "%s"';
-$s_plugin_Csv_import_error_manycols = 'Trop de colonnes dans le fichier';
 $s_plugin_Csv_import_error_col_count = 'Chaque ligne doit avoir le même nombre de séparateur "%s"';
 $s_plugin_Csv_import_error_file_not_found = 'Fichier non trouvé';
 $s_plugin_Csv_import_error_file_not_writable = 'Impossible d\'écrire dans le fichier';
