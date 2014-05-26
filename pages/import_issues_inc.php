@@ -275,7 +275,10 @@ function get_user_column_value( $p_name, $p_row, $p_default ) {
 function get_column_value( $p_name, $p_row, $p_default = '' ) {
 	global $f_columns;
 	$t_column = array_isearch( $p_name, $f_columns );
-	return ( ($t_column === false) || (!isset( $p_row[$t_column] )) ) ? $p_default : utf8_encode(trim( $p_row[$t_column] ));
+	$t_value = ( ($t_column === false) || (!isset( $p_row[$t_column] )) ) ? $p_default : utf8_encode(trim( $p_row[$t_column] ));
+
+	$t_value = str_replace( '\n', "\n", $t_value );
+	return $t_value;
 }
 
 #-----------------------
