@@ -252,7 +252,6 @@ foreach( $t_file_content as $t_file_row ) {
 	      case 'version' :
 	      case 'target_version' :
 	      case 'build' :
-	      case 'description' :
 	      case 'steps_to_reproduce' :
 	      case 'additional_information' :
 	      case 'fixed_in_version' :
