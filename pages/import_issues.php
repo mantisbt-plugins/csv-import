@@ -182,7 +182,7 @@ foreach( $t_file_content as $t_file_row ) {
 		$t_bug_data = new BugData;
 
 		$t_bug_data->project_id			= $g_project_id;
-		$t_bug_data->category_id		= get_csv_import_category_id($g_project_id, 'csv_imported');
+		$t_bug_data->category_id		= get_csv_import_category_id( $g_project_id, 'General' );
 		$t_bug_data->reporter_id		= auth_get_current_user_id();
 		$t_bug_data->priority			= config_get( 'default_bug_priority' );
 		$t_bug_data->severity			= config_get( 'default_bug_severity' );
