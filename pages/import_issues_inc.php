@@ -306,3 +306,9 @@ function hvar_dump()
 
 	echo '</pre>';
 }
+
+if( !function_exists( 'helper_alternate_class' ) ) {
+	function helper_alternate_class() {
+		return '';
+	}
+}
