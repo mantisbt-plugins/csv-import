@@ -37,6 +37,7 @@ $s_plugin_Csv_import_error_bug_bad_project = 'The bug %d is not in the current p
 $s_plugin_Csv_import_error_any = 'Error while treating the bug "%s"';
 $s_plugin_Csv_import_error_custom_field = 'Error while importing custom field "%s" for the bug "%s"';
 $s_plugin_Csv_import_error_col_select_multiple = 'The following fields have been selected for more than one column:';
+$s_plugin_Csv_import_max_file_size_label = 'Maximum size';
 
 # Errors
 $MANTIS_ERROR['plugin_Csv_import_ERROR_ALL_PROJECT'] = 'A project must be selected to import issues';
