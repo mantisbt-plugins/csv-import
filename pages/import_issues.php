@@ -85,6 +85,10 @@ $t_issues_count = 0;
 
 # Import file content
 $t_success_count = array();
+$t_success_count['update'] = 0;
+$t_success_count['new'] = 0;
+$t_success_count['nothing'] = 0;
+
 $t_failure_count = 0;
 $t_error_messages = '';
 
@@ -316,7 +320,8 @@ foreach( $t_file_content as $t_file_row ) {
 	if( $t_operation_type == 'update' &&  !$detectChanges ) {
 	   $t_operation_type = 'nothing';
 	}
-   $t_success_count[$t_operation_type]++;
+
+	$t_success_count[$t_operation_type]++;
 
 	# Set values
 	if(!$t_dry_mode && $t_operation_type != 'nothing') {
