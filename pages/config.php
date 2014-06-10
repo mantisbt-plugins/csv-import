@@ -5,8 +5,7 @@ html_page_top1( plugin_lang_get( 'title' ) );
 html_page_top2();
 print_manage_menu();
 
-# TODO : Understand the warning ...
-$t_import_issues_treshold = plugin_config_get( 'import_issues_treshold' );
+$t_import_issues_threshold = plugin_config_get( 'import_issues_threshold' );
 
 ?>
 <br/>
@@ -23,7 +22,7 @@ $t_import_issues_treshold = plugin_config_get( 'import_issues_treshold' );
 	</td>
 	<td>
 		<select name="import_issues_trshold">
-			<?php print_enum_string_option_list( 'access_levels', $t_import_issues_treshold ) ?>
+			<?php print_enum_string_option_list( 'access_levels', $t_import_issues_threshold ) ?>
 		</select>
 	</td>
 </tr> 
