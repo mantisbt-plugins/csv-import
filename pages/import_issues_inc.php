@@ -122,13 +122,10 @@ function read_csv_row( $p_file_row, $p_separator ) {
 }
 
 function category_get_id_by_name_ne( $p_category_name, $p_project_id ) {
-	static $s_categories = null;
+	# Don't cache categories as they can be added during the import process.
+	$t_categories = category_get_all_rows( $p_project_id );
 
-	if( !isset( $s_categories[$p_project_id] ) ) {
-		$s_categories[$p_project_id] = category_get_all_rows( $p_project_id );
-	}
-
-	foreach ( $s_categories[$p_project_id] as $t_category ) {
+	foreach ( $t_categories as $t_category ) {
 		if( strcasecmp( $t_category['name'], $p_category_name ) == 0 ) {
 			return (int)$t_category['id'];
 		}
