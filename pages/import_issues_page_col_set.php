@@ -187,12 +187,11 @@
 		if ( strtolower( $t_column_title[$i] ) == 'id' ) {
 			# By default use import as new issues mode rather than update issues with matching ids.
 			$t_found_field = false;
-		}
-		else if( isset( $g_all_fields[$t_column_title[$i]] ))
-		{
+		} else if( isset( $g_all_fields[$t_column_title[$i]] ) ) {
 			$t_found_field = $t_column_title[$i];
-		}
-		else
+		} else if( isset( $g_all_fields[ str_replace( '_id', '', $t_column_title[$i] ) ] ) ) {
+			$t_found_field = str_replace( '_id', '', $t_column_title[$i] );
+		} else
 		{
 			$t_found_field = array_isearch( prepare_output($t_column_title[$i]), $g_all_fields );
 		}
