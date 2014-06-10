@@ -188,7 +188,7 @@ foreach( $t_file_content as $t_file_row ) {
 		$t_bug_data->severity			= config_get( 'default_bug_severity' );
 		$t_bug_data->reproducibility	= config_get( 'default_bug_reproducibility' );
 		$t_bug_data->date_submitted	= date('Y-m-d G:i:s');
-		$t_bug_data->handler_id			= auth_get_current_user_id();
+		$t_bug_data->handler_id			= 0;
 		$t_bug_data->status				= config_get( 'bug_submit_status' );
 		$t_bug_data->resolution			= OPEN;
 		$t_bug_data->view_state			= config_get( 'default_bug_view_status' );
