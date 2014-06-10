@@ -122,39 +122,35 @@ function read_csv_row( $p_file_row, $p_separator ) {
 }
 
 function category_get_id_by_name_ne( $p_category_name, $p_project_id ) {
-	$t_category_table = db_get_table( 'mantis_category_table' );
-	$t_project_name = project_get_name( $p_project_id );
+	static $s_categories = null;
 
-	$t_query = "SELECT id FROM $t_category_table
-			WHERE name=". db_param() . " AND (project_id=" . db_param() . " OR project_id = 0)";
-	$t_result = db_query_bound( $t_query, array( $p_category_name, (int) $p_project_id ) );
-	$t_count = db_num_rows( $t_result );
-	if ( 1 > $t_count ) {
-		return false;
+	if( !isset( $s_categories[$p_project_id] ) ) {
+		$s_categories[$p_project_id] = category_get_all_rows( $p_project_id );
 	}
 
-	return db_result( $t_result );
+	foreach ( $s_categories[$p_project_id] as $t_category ) {
+		if( strcasecmp( $t_category['name'], $p_category_name ) == 0 ) {
+			return (int)$t_category['id'];
+		}
+	}
+
+	return false;
 }
 
 function prepare_output( $t_string , $t_encode_only = false ) {
 	return string_html_specialchars( utf8_encode($t_string) );
 }
 
-function get_csv_import_category_id( $t_project_id , $t_category_name ) {
-	project_ensure_exists( $t_project_id );
+function get_csv_import_category_id( $p_project_id, $p_category_name ) {
+	project_ensure_exists( $p_project_id );
 
-	$t_category_id = category_get_id_by_name_ne($t_category_name , $t_project_id);
+	$t_category_id = category_get_id_by_name_ne( $p_category_name, $p_project_id );
 	if( !$t_category_id )
 	{
-		return category_add( $t_project_id, $t_category_name );
+		return category_add( $p_project_id, $p_category_name );
 	}
-	else
-	{
-		return $t_category_id;
-	};
 
-	# Just in case...
-	return null;
+	return $t_category_id;
 }
 
 # --------------------
