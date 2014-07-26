@@ -273,7 +273,11 @@ foreach( $t_file_content as $t_file_row ) {
          		if( $t_cat != '' && $f_create_unknown_cats ) {
          			get_csv_import_category_id($g_project_id, $t_cat);
          			$v = get_category_column_value('category', $t_file_row, $t_bug_data->project_id , '' );
-         		}
+				} else {
+					# If user hasn't selected create unknown categories, then select a default category
+					# when category is not already defined.
+					$v = config_get( 'default_category_for_moves' );
+				}
          	}
          	
          	$aColumn = 'category_id';
