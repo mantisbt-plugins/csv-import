@@ -244,7 +244,9 @@ function get_user_column_value( $p_name, $p_row, $p_default ) {
 	}
 
 	if ( strstr( $t_username, '@' ) === false ) {
-		$t_email = $t_username . '@localhost';
+		# User name can contain invalid email characters, example spaces.
+		# Since this is an invalid email address anyway and user is not enabled, use md5.
+		$t_email = md5( $t_username ) . '@localhost';
 	} else {
 		$t_email = $t_username;
 	}
