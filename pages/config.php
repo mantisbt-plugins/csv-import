@@ -21,7 +21,7 @@ $t_import_issues_threshold = plugin_config_get( 'import_issues_threshold' );
 		<?php echo lang_get( 'access_level' ) ?>
 	</td>
 	<td>
-		<select name="import_issues_trshold">
+		<select name="import_issues_threshold">
 			<?php print_enum_string_option_list( 'access_levels', $t_import_issues_threshold ) ?>
 		</select>
 	</td>
