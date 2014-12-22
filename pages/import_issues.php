@@ -187,7 +187,6 @@ foreach( $t_file_content as $t_file_row ) {
 		$t_bug_data->priority			= config_get( 'default_bug_priority' );
 		$t_bug_data->severity			= config_get( 'default_bug_severity' );
 		$t_bug_data->reproducibility	= config_get( 'default_bug_reproducibility' );
-		$t_bug_data->date_submitted	= date('Y-m-d G:i:s');
 		$t_bug_data->handler_id			= 0;
 		$t_bug_data->status				= config_get( 'bug_submit_status' );
 		$t_bug_data->resolution			= OPEN;
@@ -367,15 +366,25 @@ foreach( $t_file_content as $t_file_row ) {
 	}
 }
 
-html_page_top1();
-$t_redirect_url = 'view_all_bug_page.php';
 if( $t_failure_count == 0 ) {
-	html_meta_redirect( $t_redirect_url );
+	$t_redirect_url = 'view_all_bug_page.php';
+} else {
+	$t_redirect_url = null;
 }
-html_page_top2();
+
+layout_page_header( null, $t_redirect_url );
+
+if( $t_failure_count ) {
+	$t_alert_style = 'alert-danger';
+} else {
+	$t_alert_style = 'alert-success';
+}
 ?>
-<br />
-<div align="center">
+
+<div class="col-md-12 col-xs-12">
+	<div class="space-10"></div>
+	<div class="alert <?php echo $t_alert_style; ?>">
+
 <?php
 echo sprintf( plugin_lang_get( 'result_update_success_ct'  ), $t_success_count['update']) . '<br />';
 echo sprintf( plugin_lang_get( 'result_import_success_ct'  ), $t_success_count['new']) . '<br />';
@@ -388,6 +397,7 @@ if( $t_failure_count ) {
 print_bracket_link( $t_redirect_url, lang_get( 'proceed' ) );
 ?>
 </div>
+</div>
 
 <?php
-html_page_bottom1( __FILE__ );
+layout_page_end( __FILE__ );

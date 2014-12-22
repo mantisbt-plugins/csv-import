@@ -2,8 +2,10 @@
 	# Mantis - a php based bugtracking system
 	require_once( 'core.php' );
 	access_ensure_project_level( plugin_config_get( 'import_issues_threshold' ) );
-	html_page_top1( plugin_lang_get( 'manage_issues' ) );
-	html_page_top2();
+
+	layout_page_header( plugin_lang_get( 'manage_issues' ) );
+	layout_page_begin( __FILE__ );
+
 	$import_it = plugin_page('import_issues');
 	?>
 <br />
@@ -109,14 +111,23 @@
 	move_uploaded_file( $f_import_file['tmp_name'], $t_file_name );
 ?>
 
-<!-- File extraction -->
-<table class="width100" cellspacing="1">
-	<tr>
-		<td class="form-title" colspan="<?php echo $t_column_count ?>">
-				<?php echo $f_import_file['name'] ?>
-		</td>
-	</tr>
-	<tr class="row-category">
+<!-- Set fields form -->
+<div class="">
+   <div class="space-10"></div>
+   <div id="config-div" class="form-container">
+     <div class="widget-box widget-color-blue2">
+        <div class="widget-header widget-header-small">
+           <h4 class="widget-title lighter">
+              <?php echo $f_import_file['name'] ?>
+           </h4>
+        </div>
+        <div class="widget-body">
+           <div class="widget-main no-padding">
+              <div class="form-container">
+                 <div class="table-responsive">
+                    <table class="table table-bordered table-condensed table-hover table-striped">
+                       <fieldset>
+						   <tr class="row-category">
 	<?php
 	# Write columns labels
 	for( $i = 0; $i < $t_column_count; $i++ ) {
@@ -143,7 +154,7 @@
 			continue;
 		}
 
-		echo '<tr ' . helper_alternate_class() . '>';
+		echo '<tr>';
 
 		# Still more lines (add "...")
 		if( --$t_display_max < 0 ) {
@@ -160,21 +171,47 @@
 		echo '</tr>';
 	}
 ?>
-</table>
+</fieldset>
+                    </table>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>
+   </div>
+   <div class="space-10"></div>
+</div>
 
 <br />
+
 <!-- Set fields form -->
-<div align="center">
-<form method="post" action="<?php echo $import_it ?>">
-<table class="width50" cellspacing="1">
-	<tr>
-		<td class="form-title" colspan="2">
-			<?php echo plugin_lang_get( 'issues_columns' ) ?>
-		</td>
-		<td>
-		Primary key
-		</td>
-	</tr>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+   <div class="space-10"></div>
+   <div id="config-div" class="form-container">
+      <form method="post" enctype="multipart/form-data" action="<?php echo $import_it ?>">
+         <div class="widget-box widget-color-blue2">
+            <div class="widget-header widget-header-small">
+               <h4 class="widget-title lighter">
+                  Column Mapping
+               </h4>
+            </div>
+            <div class="widget-body">
+               <div class="widget-main no-padding">
+                  <div class="form-container">
+                     <div class="table-responsive">
+                        <table class="table table-bordered table-condensed table-striped">
+                           <fieldset>
+                           	   <tr>
+                           	   	   <td>
+                           	   	       <?php echo plugin_lang_get( 'issues_columns' ) ?>
+                           	   	   </td>
+                           	   	   <td>
+                           	   	   	   Matching Action
+                           	   	   </td>
+                           	   	   <td>
+                           	   	       Primary Key
+                           	   	   </td>
+                           	   </tr>
 <?php
 	$t_column_title = array_map( 'trim', $t_column_title );
 
@@ -198,7 +235,7 @@
 
 		# Write
 		?>
-		<tr <?php echo helper_alternate_class() ?>>
+		<tr>
 			<td class="category">
 				<?php
 					if( !$t_skip_first ) {
@@ -214,27 +251,33 @@
 					<?php print_all_fields_option_list( $t_found_field !== false ? $t_found_field : 'ignore_column' ) ?>
 				</select>
 			</td>
-			 <td>
+			<td>
 				<input type="checkbox" name="cb_keys[]" value="<?php echo $i?>"/>
-			 </td>
+			</td>
 		</tr><?php
 	}
 ?>
-
-	<tr>
-		<td>&nbsp;</td>
-		<td>
 			<input type="hidden" name="cb_skip_first_line" value="<?php echo $t_skip_first ?>" />
 			<input type="hidden" name="cb_skip_blank_lines" value="<?php echo $t_trim_rows ?>" />
 			<input type="hidden" name="cb_trim_blank_cols" value="<?php echo $t_trim_columns ?>" />
 			<input type="hidden" name="edt_cell_separator" value="<?php echo $t_separator ?>" />
 			<input type="hidden" name="cb_create_unknown_cats" value="<?php echo $t_create_unknown_cats ?>" />
 			<input type="hidden" name="import_file" value="<?php echo $t_file_name ?>" />
-			<input type="submit" id="importForm" class="button" value="<?php echo plugin_lang_get( 'file_button' ) ?>" onclick="return checkFields();" />
-		</td>
-	</tr>
-</table>
-</form>
+</fieldset>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="widget-toolbox padding-8 clearfix">
+			      <input type="submit" class="btn btn-primary btn-white btn-round" id="importForm" value="<?php echo plugin_lang_get( 'file_button' ) ?>" onclick="return checkFields();" />
+               </div>
+            </div>
+         </div>
+      </form>
+   </div>
+   <div class="space-10"></div>
+</div>
+
 <script type="text/javascript">
 function checkFields() {
 	var allDropdowns = document.getElementsByName("columns[]");
@@ -258,10 +301,6 @@ function checkFields() {
 	}
 }
 </script>
-</div>
-
-
 
 <?php
-
-html_page_bottom1( __FILE__ ) ;
+layout_page_end();
