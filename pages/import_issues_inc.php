@@ -106,7 +106,7 @@ function csv_string_unescape( $p_string ) {
 function read_csv_file( $p_filename ) {
 	$t_regexp = '/\G((?:[^"\r\n]+|"[^"]*")+)[\r|\n]*/sm';
 
-	$t_file_content = file_get_contents( $p_filename );
+	$t_file_content = read_file_as_utf8( $p_filename );
 	preg_match_all($t_regexp, $t_file_content, $t_file_rows);
 	return $t_file_rows[1];
 }
@@ -310,4 +310,22 @@ if( !function_exists( 'helper_alternate_class' ) ) {
 	function helper_alternate_class() {
 		return '';
 	}
+}
+
+#-----------------------
+/**
+ * Read the file contents as UTF-8
+ *
+ * @param string $p_file_path The file path
+ * @return string The processed file contents
+ */
+function read_file_as_utf8( $p_file_path ) {
+	$data = file_get_contents( $p_file_path );
+	if( !empty( $data ) ) {
+		$fileType = mb_detect_encoding( $data, $encode_arr = array( 'UTF-8', 'ASCII', 'GBK', 'GB2312', 'BIG5', 'JIS', 'eucjp-win', 'sjis-win', 'EUC-JP' ), true );
+		if( $fileType != 'UTF-8' ) {
+			$data = mb_convert_encoding( $data, 'UTF-8', $fileType );
+		}
+	}
+	return $data;
 }
