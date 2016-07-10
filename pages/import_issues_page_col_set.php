@@ -125,7 +125,7 @@
 			echo sprintf( plugin_lang_get( 'column_number' ), $i + 1);
 		}
 		else {
-			echo prepare_output($t_column_title[$i]);
+			echo $t_column_title[$i];
 		}
 		echo '</td>';
 	}
@@ -154,7 +154,7 @@
 		else {
 			# Write values
 			foreach( read_csv_row( $t_file_line, $t_separator ) as $t_element ) {
-				echo '<td>' . prepare_output($t_element) . '</td>';
+				echo '<td>'. $t_element.'</td>';
 			}
 		}
 		echo '</tr>';
@@ -205,7 +205,7 @@
 						echo sprintf( plugin_lang_get( 'column_number' ), $i + 1);
 					}
 					else {
-						echo prepare_output($t_column_title[$i]);
+						echo $t_column_title[$i];
 					}
 				?>
 			</td>
