@@ -106,7 +106,11 @@ function csv_string_unescape( $p_string ) {
 function read_csv_file( $p_filename ) {
 	$t_regexp = '/\G((?:[^"\r\n]+|"[^"]*")+)[\r|\n]*/sm';
 
-	$t_file_content = file_get_contents( $p_filename );
+	$t_file_raw_content = file_get_contents( $p_filename );
+
+	# Convert special chars to html entities
+	$t_file_content = mb_convert_encoding($t_file_raw_content, 'HTML-ENTITIES', "UTF-8");
+
 	preg_match_all($t_regexp, $t_file_content, $t_file_rows);
 	return $t_file_rows[1];
 }
