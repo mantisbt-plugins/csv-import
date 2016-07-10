@@ -1,7 +1,7 @@
-Csv_import
-==========
+CSV Issues Importer
+===================
 
-A csv importer plugin for MantisBT v1.2.
+A plugin that imports issues from CSV files.
 
 Install
 -------
@@ -26,3 +26,10 @@ Few hints about usability
 - If the goal to add the rows from csv, then make sure to map Id fields (if in CSV) to be ignored.
 - If the id is supplied, then issues with be updated based on data from the csv after matching by id.
 - Users that are auto-created will have random passwords, will be disabled and will have email as username@localhost.
+
+Compatibility
+-------------
+- Supports MantisBT v1.3.x -- use master branch
+- Supports MantisBT v2.x (modern ui) -- use modern-ui branch
+- Supports MantisBT v1.2.x -- use master-1.2.x branch
+
