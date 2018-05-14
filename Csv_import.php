@@ -4,7 +4,7 @@ class Csv_importPlugin extends MantisPlugin
 	function register() {
 		$this->name = plugin_lang_get( 'title' );
 		$this->description = plugin_lang_get( 'description' );
-		$this->version = '1.4.1';
+		$this->version = '1.5.0';
 		$this->requires = array( 'MantisCore' => '1.3.0' );
 		$this->author = 'Bug 4220 Team';
 		$this->contact = 'https://github.com/mantisbt-plugins/csv-import/';
