@@ -347,9 +347,10 @@ foreach( $t_file_content as $t_file_row ) {
       		bug_update_date( $t_bug_id );
       	}
       	else {
-      	   $t_failure_count++;
-      	   $t_error_messages .= sprintf( $lineNumber . ' : ' . plugin_lang_get( 'error_custom_field' ),
-      	                                                   $t_def['name'], $t_bug_data->summary) . '<br />';
+            $t_custom_col_def = custom_field_get_definition($t_id);
+            $t_failure_count++;
+            $t_error_messages .= sprintf( $lineNumber . ' : ' . plugin_lang_get( 'error_custom_field' ),
+                    $t_custom_col_def['name'], $t_bug_data->summary) . '<br />';
             continue;
       	}
    	}
