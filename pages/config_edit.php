@@ -6,4 +6,4 @@ $f_import_issues_threshold = gpc_get_int( 'import_issues_threshold', 70 );
 
 plugin_config_set( 'import_issues_threshold', $f_import_issues_threshold );
 
-print_successful_redirect( plugin_page( 'config', TRUE ) );
+print_header_redirect( plugin_page( 'config', true ) );
